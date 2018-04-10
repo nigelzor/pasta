@@ -1,5 +1,67 @@
-html
+html(lang="en")
   head
-    title= title
+    title pasta
+    meta(name="viewport", content="width=device-width, initial-scale=1")
+    link(href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet")
+    style(type="text/css").
+      body {
+        margin: 0;
+        padding: 0;
+        background-color: white;
+      }
+      form {
+        display: flex;
+        flex-direction: column;
+        height: 100vh;
+        max-width: 50rem;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      .saved {
+        animation-duration: 1s;
+        animation-name: flash;
+      }
+      @keyframes flash {
+        from {
+          background-color: thistle;
+        }
+        to {
+          background-color: white;
+        }
+      }
+      h1 {
+        font-family: 'Faster One', sans-serif;
+        font-weight: normal;
+        text-transform: uppercase;
+        margin: 1rem;
+        text-align: center;
+      }
+      textarea {
+        flex-grow: 1;
+        min-height: 10rem;
+      }
+      #save {
+        padding: 1rem;
+        text-align: center;
+      }
+      #save input {
+        cursor: pointer;
+        font-size: larger;
+      }
+    script.
+      if (location.hash === '#saved') {
+        document.addEventListener("DOMContentLoaded", function () {
+          document.body.className = 'saved';
+        });
+        if ("replaceState" in history) {
+          history.replaceState({}, document.title, location.href.substr(0, location.href.length - location.hash.length));
+        } else {
+          location.hash = '';
+        }
+      }
   body
-    h1= message
+    form(action="/update", method="post")
+      h1 pasta
+      textarea(name="pasta")= pasta
+      div#save
+        input(type="submit", value="save")
