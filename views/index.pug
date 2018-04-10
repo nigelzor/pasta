@@ -41,6 +41,7 @@ html(lang="en")
       textarea {
         flex-grow: 1;
         min-height: 10rem;
+        max-height: 30rem;
         width: 100%;
       }
       #save {
@@ -52,16 +53,19 @@ html(lang="en")
         font-size: larger;
       }
     script.
-      if (location.hash === '#saved') {
-        document.addEventListener("DOMContentLoaded", function () {
+      document.addEventListener("DOMContentLoaded", function () {
+        if (location.hash === '#saved') {
           document.body.className = 'saved';
-        });
-        if ("replaceState" in history) {
-          history.replaceState({}, document.title, location.href.substr(0, location.href.length - location.hash.length));
-        } else {
-          location.hash = '';
+          if ("replaceState" in history) {
+            history.replaceState({}, document.title, location.href.substr(0, location.href.length - location.hash.length));
+          } else {
+            location.hash = '';
+          }
         }
-      }
+        document.querySelector('form').onsubmit = function () {
+          document.querySelector('#save input').disabled = true;
+        };
+      });
   body
     form(action="/update", method="post")
       h1 pasta

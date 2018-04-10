@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
 
 app.post('/update', (req, res) => {
   db = req.body.pasta;
-  res.redirect('/#saved')
+  res.redirect('/#saved');
 });
 
 const port = process.env.PORT || 3000;
