@@ -1,9 +1,17 @@
 {
   "name": "pasta",
   "version": "1.0.0",
-  "main": "index.js",
-  "author": "Neil Gentleman <ngentleman@gmail.com>",
+  "homepage": "https://github.com/nigelzor/pasta#readme",
   "license": "ISC",
+  "author": "Neil Gentleman <ngentleman@gmail.com>",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nigelzor/pasta.git"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
   "dependencies": {
     "compression": "^1.7.2",
     "express": "^4.16.3",
