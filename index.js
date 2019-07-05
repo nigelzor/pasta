@@ -5,10 +5,14 @@ const url = require('url');
 
 let db = { pasta: '', date: new Date() };
 
+function view(name) {
+  return pug.compileFile(`views/${name}.pug`, { cache: true, compileDebug: false });
+}
+
 module.exports = async (req, res) => {
   const { pathname } = url.parse(req.url);
   if (pathname === '/') {
-    send(res, 200, pug.renderFile('views/index.pug', db));
+    send(res, 200, view('index')(db));
   } else if (req.method === 'POST' && pathname === '/update') {
     const body = qs.parse(await text(req, { limit: '10kb' })).pasta;
     db = { pasta: body, date: new Date() };
