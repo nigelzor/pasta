@@ -10,11 +10,14 @@
     "url": "git+https://github.com/nigelzor/pasta.git"
   },
   "scripts": {
-    "start": "node server.js"
+    "start": "micro",
+    "dev": "micro-dev"
   },
   "dependencies": {
-    "compression": "^1.7.2",
-    "express": "^4.16.3",
+    "micro": "^9.3.4",
     "pug": "^2.0.3"
+  },
+  "devDependencies": {
+    "micro-dev": "^3.0.0"
   }
 }
