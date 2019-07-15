@@ -3,10 +3,12 @@ const pug = require('pug');
 const qs = require('querystring');
 const url = require('url');
 
+const isProd = process.env.NODE_ENV === 'production';
+
 let db = { pasta: '', date: new Date() };
 
 function view(name) {
-  return pug.compileFile(`views/${name}.pug`, { cache: true, compileDebug: false });
+  return pug.compileFile(`views/${name}.pug`, { cache: isProd, compileDebug: !isProd });
 }
 
 module.exports = async (req, res) => {
