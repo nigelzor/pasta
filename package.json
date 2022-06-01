@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "micro": "^9.3.4",
-    "pug": "^2.0.3"
+    "pug": "^3.0.1"
   },
   "devDependencies": {
     "@nigelzor/micro-dev": "^3.1.0"
