@@ -4,7 +4,7 @@ html(lang="en")
     title pasta
     meta(name="viewport", content="width=device-width, initial-scale=1")
     link(href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet")
-    style(type="text/css").
+    style.
       body {
         margin: 0;
         padding: 0;
@@ -52,7 +52,7 @@ html(lang="en")
         cursor: pointer;
         font-size: larger;
       }
-    script.
+    script(nonce=nonce).
       document.addEventListener("DOMContentLoaded", function () {
         if (location.hash === '#saved') {
           document.body.className = 'saved';
