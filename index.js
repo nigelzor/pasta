@@ -14,6 +14,7 @@ function view(name) {
 module.exports = async (req, res) => {
   const { pathname } = url.parse(req.url);
   if (pathname === '/') {
+    res.setHeader('Content-Type', 'text/html; charset=utf-8');
     send(res, 200, view('index')(db));
   } else if (req.method === 'POST' && pathname === '/update') {
     const body = qs.parse(await text(req, { limit: '10kb' })).pasta;
