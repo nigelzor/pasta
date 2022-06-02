@@ -3,7 +3,7 @@ html(lang="en")
   head
     title pasta
     meta(name="viewport", content="width=device-width, initial-scale=1")
-    link(href="https://fonts.googleapis.com/css?family=Faster+One" rel="stylesheet")
+    meta(name="description", content="it's like pastebin, but there's only one document")
     style.
       body {
         margin: 0;
@@ -31,12 +31,14 @@ html(lang="en")
         }
       }
       h1 {
-        font-family: 'Faster One', sans-serif;
-        font-weight: normal;
-        text-transform: uppercase;
         margin: 0;
         padding: 1rem;
         text-align: center;
+        display: flex;
+        justify-content: center;
+      }
+      h1 img {
+        height: .75em;
       }
       textarea {
         flex-grow: 1;
@@ -68,7 +70,8 @@ html(lang="en")
       });
   body
     form(action="/update", method="post")
-      h1 pasta
-      textarea(name="pasta")= pasta
+      h1
+        img(alt='pasta', src=logo)
+      textarea(name="pasta", aria-label='content')= pasta
       div#save
         input(type="submit", value="save")
